@@ -87,3 +87,11 @@ VALUES (31, 73);
 INSERT INTO tblEpisodeCompanion (EpisodeId, CompanionId)
 VALUES (34, 74);
 
+
+-------------------------------------------
+INSERT INTO tblEpisode (SeriesNumber, EpisodeNumber, EpisodeType, Title, EpisodeDate, AuthorId, Notes)
+		VALUES (		4,			3,				'Regular',	'S4:E3', '1976-11-23', 15,'NoDocApperance');
+INSERT INTO tblEpisode (SeriesNumber, EpisodeNumber, EpisodeType, Title, EpisodeDate, AuthorId, Notes)
+		VALUES (		5,			1,				'Regular', 'S5:E1', '2001-11-23', 15,'NODoctor Apperance');
+INSERT INTO tblEpisode (SeriesNumber, EpisodeNumber, EpisodeType, Title, EpisodeDate, AuthorId, Notes)
+VALUES (				7,			 2,				'Regular', 'S7:E2', '1974-11-23', 15,'Notes to be written');
