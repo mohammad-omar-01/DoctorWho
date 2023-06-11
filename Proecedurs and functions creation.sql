@@ -23,6 +23,45 @@ CREATE PROCEDURE AddEpisode @SeriesNum int,@EpisodeNum int ,@EpisodeType  nvarch
 AS
 insert into dbo.tblCompanion (CompanionName,WhoPlayed) values (@Name,@WhoPlayed)
 
+--------------------------------FunctionCompanionShower----------------------
+-----ReturnAsTable--------------------------
+CREATE FUNCTION [dbo].[fnCompanion] (@episodeId int)
+RETURNS VARCHAR(max) AS
+	BEGIN
+	DECLARE @resultSet VARCHAR(MAX)=' '
+	SELECT  @resultSet= CONCAT(C.CompanionName,' , ',@resultSet)
+	FROM tblCompanion C INNER JOIN tblEpisodeCompanion EC ON 
+	C.CompanionId=EC.CompanionId
+	WHERE Ec.EpisodeId=@episodeId;
+	SET @resultSet = TRIM(', ' FROM @resultSet);
+
+    RETURN @resultSet;
+END;
+CREATE FUNCTION fnCompanions (@episodeId INT)
+RETURNS TABLE AS
+RETURN
+	SELECT DISTINCT C.CompanionName
+	FROM tblEpisodeCompanion EC INNER JOIN tblCompanion C ON 
+		EC.CompanionId=C.CompanionId
+	WHERE EC.EpisodeId=@episodeId;
+
+CREATE FUNCTION [dbo].fnEnemies (@episodeId int)
+RETURNS VARCHAR(max) AS
+	BEGIN
+	DECLARE @resultSet VARCHAR(MAX)=' '
+	SELECT  @resultSet= CONCAT(E.EnemyName,' , ',@resultSet)
+	FROM tblEnemy E INNER JOIN tblEpisodeEnemy EE ON 
+	E.EnermyId=EE.EnemyId
+	WHERE EE.EpisodeId=@episodeId;
+	SET @resultSet = TRIM(', ' FROM @resultSet);
+
+    RETURN @resultSet;
+END;
+
+
+
+
+
 
 
 

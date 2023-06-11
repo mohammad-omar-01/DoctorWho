@@ -29,6 +29,7 @@ exec dbo.inseartCompanion 'Sara Kingdom','Jean Marsh'
 exec dbo.inseartCompanion 'Anneke Wills','Polly'
 exec dbo.inseartCompanion 'Clara Oswald', 'Jenna Coleman';
 EXEC dbo.inseartCompanion 'Bill Potts', 'Pearl Mackie';
+
 -------------------------#Episodes----------------------
 INSERT INTO tblEpisode (SeriesNumber, EpisodeNumber, EpisodeType, Title, EpisodeDate, AuthorId, DoctorId, Notes)
 VALUES (1, 1, 'Regular', 'An Unearthly Child', '1963-11-23', 15, 60, 'Introduction of the First Doctor');
