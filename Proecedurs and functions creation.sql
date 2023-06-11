@@ -23,6 +23,17 @@ CREATE PROCEDURE AddEpisode @SeriesNum int,@EpisodeNum int ,@EpisodeType  nvarch
 AS
 insert into dbo.tblCompanion (CompanionName,WhoPlayed) values (@Name,@WhoPlayed)
 
+--------------------------------FunctionCompanionShower----------------------
+CREATE FUNCTION fnCompanions (@episodeId INT)
+RETURNS TABLE AS
+RETURN
+	SELECT DISTINCT C.CompanionName
+
+FROM tblEpisodeCompanion EC INNER JOIN tblCompanion C ON 
+EC.CompanionId=C.CompanionId
+WHERE EC.EpisodeId=30;
+
+
 
 
 
